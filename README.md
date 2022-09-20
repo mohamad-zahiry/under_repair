@@ -18,7 +18,7 @@ INSTALLED_APPS = [
 
 ```
 
-3. add `under_repair.middleware.UnderRepairMiddleware` to the very first of your `MIDDLEWARE`
+3. add `under_repair.middleware.UnderRepairMiddleware` at the very first of your `MIDDLEWARE`
 
 ```python
 MIDDLEWARE = [
@@ -46,7 +46,7 @@ UNDER_REPAIR = {
 
 ```
 
-# Customization
+## Customization
 
 You can create your own view to show to the users.
 
