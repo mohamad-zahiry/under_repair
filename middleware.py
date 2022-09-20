@@ -4,7 +4,7 @@ from django.utils.deprecation import MiddlewareMixin
 
 DEFAULTS = {
     "ACTIVATE": False,
-    "VIEW": ".views.under_repair_view",
+    "VIEW": "under_repair.views.under_repair_view",
 }
 
 UNDER_REPAIR = getattr(settings, "UNDER_REPAIR", DEFAULTS)
