@@ -4,7 +4,7 @@ from django.utils.deprecation import MiddlewareMixin
 
 DEFAULTS = {
     "ACTIVATE": False,
-    "VIEW": "under_repair.views.under_repair_view",
+    "VIEW": ".views.under_repair_view",
 }
 
 UNDER_REPAIR = getattr(settings, "UNDER_REPAIR", DEFAULTS)
@@ -30,4 +30,7 @@ class UnderRepairMiddleware(MiddlewareMixin):
 
     def process_request(self, request):
         if self.activated:
-            return self.view(request)
+            response = self.view(request)
+            if response.status_code != 503:
+                raise Exception("The status code must be 503")
+            return response
