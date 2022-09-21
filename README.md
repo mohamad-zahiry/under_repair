@@ -4,7 +4,7 @@ A simple django **middleware** to show another page when site is under repair
 
 ## Installation
 
-0. clone this repo `$ git clone `
+0. clone this repo `$ git clone https://github.com/mohamad-zahiry/under_repair.git`
 1. copy `under_repair` package alongside your other apps
 2. add `under_repair` to your `INSTALLED_APPS` in `settings.py`
 
