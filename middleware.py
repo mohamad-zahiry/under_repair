@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.utils.deprecation import MiddlewareMixin
+from django.contrib.sites.shortcuts import get_current_site
 
 
 DEFAULTS = {
@@ -29,7 +30,10 @@ class UnderRepairMiddleware(MiddlewareMixin):
         self.view = _get_view()
 
     def process_request(self, request):
-        if self.activated:
+        ADMIN_PAGE = UNDER_REPAIR.get("ADMIN_PAGE", f"{get_current_site(request)}/admin").rstrip("/")
+        CURRENT_URL = f"{get_current_site(request)}{request.path_info}"
+
+        if self.activated and not (ADMIN_PAGE in CURRENT_URL):
             response = self.view(request)
             if response.status_code != 503:
                 raise Exception("The status code must be 503")
