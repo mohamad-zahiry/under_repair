@@ -20,12 +20,12 @@ INSTALLED_APPS = [
 
 ```
 
-3. add `under_repair.middleware.UnderRepairMiddleware` at the very first of your `MIDDLEWARE`
+3. add `under_repair.middleware.UnderRepairMiddleware` to your `MIDDLEWARE`
 
 ```python
 MIDDLEWARE = [
-    "under_repair.middleware.UnderRepairMiddleware",
     # other middlewares
+    "under_repair.middleware.UnderRepairMiddleware",
     ...,
 ]
 
@@ -89,5 +89,4 @@ You can create your own **view** or **admin panel url**, or even, create some re
 These are some idea for my self and who wants contribute to project
 
 - Refactoring the code (it could be better. I'm a junior :()
-- Adding the support of `static files`
 - Creating good default UI (I don't like frontend, help me :))
